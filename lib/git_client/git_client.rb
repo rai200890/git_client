@@ -4,7 +4,7 @@ require "git_client/client/github"
 module GitClient
   class GitClient
 
-    PROVIDERS = {github: Client::GitHub, gitlab: Client::GitLab}
+    PROVIDERS = {gitlab: Client::GitLab, github: Client::GitHub }
 
     attr_reader :client
 

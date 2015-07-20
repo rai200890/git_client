@@ -3,22 +3,29 @@ require 'json'
 module GitClient
   class Request
 
-    attr_reader :url, :params, :response, :errors
+    attr_reader :raw, :url, :params, :response, :errors
 
     def initialize params={}
       @url = params[:url]
       @params = params[:params]
       @response = params[:response]
-      @code = params[:code]
       @errors = params[:errors]
+      @raw = params[:raw] || false
     end
 
     def self.get url, params = {}, raw = false
       response = ::RestClient.get(url, params: params)
-      body = raw ? response : JSON.parse(response)
-      Request.new(url: url, params: params, response: body)
+      Request.new(url: url, params: params, response: response, raw: raw)
     rescue => e
-      Request.new(errors: JSON.parse(e.response))
+      Request.new(url: url, params: params, errors: e.response, raw: raw)
+    end
+
+    def parsed_response
+      raw ? response : JSON.parse(response)
+    end
+
+    def parsed_errors
+      JSON.parse(errors)
     end
 
   end
