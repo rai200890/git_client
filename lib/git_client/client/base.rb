@@ -1,4 +1,4 @@
-require "rest-client"
+require "git_client/request"
 module GitClient
   module Client
     class Base
