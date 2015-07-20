@@ -16,7 +16,7 @@ module GitClient
     def self.get url, params = {}, raw = false
       response = ::RestClient.get(url, params: params)
       body = raw ? response : JSON.parse(response)
-      Request.new(url: url, params: params, response: body, code: response.code)
+      Request.new(url: url, params: params, response: body)
     rescue => e
       Request.new(errors: JSON.parse(e.response))
     end
