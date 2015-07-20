@@ -24,7 +24,27 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+### Client initialization:
+```ruby
+client = GitClient::GitClient.new({provider: :gitlab, base_url: <repository_url>, private_token: <token>}).client
+```
+
+### Retrieving projects:
+```ruby
+
+request = client.projects
+projects = request.parsed_response
+raw_response = request.response
+```
+###Retrieving file:
+```ruby
+request = client.file project_id: 92, filepath: "Gemfile.lock", commit_sha: '83eb671a5'
+file_contents = request.response
+```
+### Retrieving errors:
+```ruby
+errors = request.parsed_errors
+```
 
 ## Contributing
 
