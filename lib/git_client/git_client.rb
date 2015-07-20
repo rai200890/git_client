@@ -9,7 +9,8 @@ module GitClient
     attr_reader :client
 
     def self.supported_providers
-      PROVIDERS.keys
+      #PROVIDERS.keys
+      [:gitlab]
     end
 
     def initialize(params = {})
