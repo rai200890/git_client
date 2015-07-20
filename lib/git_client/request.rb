@@ -3,7 +3,7 @@ require 'json'
 module GitClient
   class Request
 
-    attr_reader :url, :params, :response, :errors, :code
+    attr_reader :url, :params, :response, :errors
 
     def initialize params={}
       @url = params[:url]
