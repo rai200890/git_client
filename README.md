@@ -1,6 +1,10 @@
 # GitClient
 
-TODO: Write a gem description
+[![Code Climate](https://codeclimate.com/github/rai200890/git_client/badges/gpa.svg)](https://codeclimate.com/github/rai200890/git_client)
+
+## Description
+
+Client for consuming Gitlab and Github APIs.
 
 ## Installation
 
