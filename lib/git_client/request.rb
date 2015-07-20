@@ -25,8 +25,9 @@ module GitClient
     end
 
     def parsed_errors
-      JSON.parse(errors)
+      errors ? JSON.parse(errors) : nil
     end
+
 
   end
 end
